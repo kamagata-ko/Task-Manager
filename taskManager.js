@@ -99,7 +99,9 @@ const showTaskEditor = (task, taskElement) => {
 
   taskEditor.style.display = "block";
 
-  saveButton.addEventListener("click", () => {
+  saveButton.addEventListener("click", saveButtonClickHandler);
+
+  function saveButtonClickHandler() {
     task.title = editTitle.value;
     task.description = editDescription.value;
 
@@ -107,7 +109,9 @@ const showTaskEditor = (task, taskElement) => {
     taskEditor.style.display = "none";
 
     showTasks();
-  });
+
+    saveButton.removeEventListener("click", saveButtonClickHandler);
+  }
 
   cancelButton.addEventListener("click", () => {
     taskElement.classList.remove("edit-mode");
@@ -117,12 +121,16 @@ const showTaskEditor = (task, taskElement) => {
   if (task.completed) {
     revertButton.style.display = "block";
 
-    revertButton.addEventListener("click", () => {
+    revertButton.addEventListener("click", revertButtonHandler);
+
+    function revertButtonHandler() {
       task.completed = false;
       revertButton.style.display = "none";
       taskEditor.style.display = "none";
       showTasks();
-    });
+
+      revertButton.removeEventListener("click", revertButtonHandler);
+    }
   }
 };
 
