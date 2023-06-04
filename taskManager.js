@@ -42,7 +42,7 @@ const showTasks = () => {
     taskElement.textContent = `[${task.id}] ${task.title} - ${task.description}`;
 
     const completeButton = document.createElement("button");
-    completeButton.textContent = "complete!";
+    completeButton.textContent = "Complete!";
     completeButton.addEventListener("click", () => {
       task.completed = true;
       showTasks();
