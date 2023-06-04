@@ -26,8 +26,8 @@ class Task {
 
 const taskManager = new TaskManager();
 
-const task1 = new Task(1, "タスク１", "スーパーへ買い物に行く");
-const task2 = new Task(2, "タスク２", "プログラミングを勉強する");
+const task1 = new Task(1, "Task 1", "Go shopping at the supermarket!!");
+const task2 = new Task(2, "Task 2", "Study programming!!");
 taskManager.addTask(task1);
 taskManager.addTask(task2);
 
