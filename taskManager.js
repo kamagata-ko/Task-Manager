@@ -30,8 +30,15 @@ const task2 = new Task(2, "タスク２", "プログラミングを勉強する"
 taskManager.addTask(task1);
 taskManager.addTask(task2);
 
-// taskManager.showTasks();
+const showTasks = () => {
+  const taskListDiv = document.getElementById("taskList");
+  taskListDiv.innerHTML = "";
 
-// taskManager.deleteTask(1);
+  taskManager.tasks.forEach((task) => {
+    const taskElement = document.createElement("p");
+    taskElement.textContent = `[${task.id}] ${task.title} - ${task.description}`;
+    taskListDiv.appendChild(taskElement);
+  });
+};
 
-// taskManager.showTasks();
+showTasks();
