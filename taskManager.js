@@ -92,6 +92,7 @@ const showTaskEditor = (task, taskElement) => {
   const editDescription = document.getElementById("editDescription");
   const saveButton = document.getElementById("saveButton");
   const cancelButton = document.getElementById("cancelButton");
+  const revertButton = document.getElementById("revertIncompleteButton");
 
   editTitle.value = task.title;
   editDescription.value = task.description;
@@ -112,6 +113,17 @@ const showTaskEditor = (task, taskElement) => {
     taskElement.classList.remove("edit-mode");
     taskEditor.style.display = "none";
   });
+
+  if (task.completed) {
+    revertButton.style.display = "block";
+
+    revertButton.addEventListener("click", () => {
+      task.completed = false;
+      revertButton.style.display = "none";
+      taskEditor.style.display = "none";
+      showTasks();
+    });
+  }
 };
 
 showTasks();

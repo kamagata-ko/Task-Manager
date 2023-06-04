@@ -55,6 +55,12 @@ cancelButton.id = "cancelButton";
 cancelButton.textContent = "Cancel";
 taskEditor.appendChild(cancelButton);
 
+const revertButton_element = document.createElement("button");
+revertButton_element.id = "revertIncompleteButton";
+revertButton_element.textContent = "revert to incomplete";
+revertButton_element.style.display = "none";
+taskEditor.appendChild(revertButton_element);
+
 body.append(taskEditor);
 
 /**-------------------------------------------- */
