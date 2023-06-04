@@ -13,6 +13,9 @@ class TaskManager {
       console.log(`[${task.id}] ${task.title} - ${task.description}`);
     });
   }
+  generateTaskId() {
+    return this.tasks.length + 1;
+  }
 }
 
 class Task {
@@ -30,6 +33,23 @@ const task1 = new Task(1, "Task 1", "Go shopping at the supermarket!!");
 const task2 = new Task(2, "Task 2", "Study programming!!");
 taskManager.addTask(task1);
 taskManager.addTask(task2);
+
+const taskTitleInput = document.getElementById("taskTitleInput");
+const taskDescriptionInput = document.getElementById("taskDescriptionInput");
+const addTaskButton = document.getElementById("addTaskButton");
+
+addTaskButton.addEventListener("click", () => {
+  const title = taskTitleInput.value;
+  const description = taskDescriptionInput.value;
+
+  if (title && description) {
+    const task = new Task(taskManager.generateTaskId(), title, description);
+    taskManager.addTask(task);
+    taskTitleInput.value = "";
+    taskDescriptionInput.value = "";
+    showTasks();
+  }
+});
 
 const showTasks = () => {
   const incompleteTaskListDiv = document.getElementById("incompleteTasks");

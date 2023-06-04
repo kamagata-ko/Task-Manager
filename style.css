@@ -17,3 +17,14 @@
 #taskEditor button {
   margin-top: 5px;
 }
+
+#taskForm input,
+#taskForm textarea {
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+#taskForm button {
+  margin-top: 5px;
+}

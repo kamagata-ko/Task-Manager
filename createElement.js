@@ -56,3 +56,29 @@ cancelButton.textContent = "Cancel";
 taskEditor.appendChild(cancelButton);
 
 body.append(taskEditor);
+
+/**-------------------------------------------- */
+
+const taskForm = document.createElement("div");
+taskForm.id = "taskForm";
+const taskFormHeadline = document.createElement("h2");
+taskFormHeadline.innerHTML = "Add Task Form";
+taskForm.appendChild(taskFormHeadline);
+
+const taskTitleInput_element = document.createElement("input");
+taskTitleInput_element.type = "text";
+taskTitleInput_element.id = "taskTitleInput";
+taskTitleInput_element.placeholder = "Title";
+taskForm.appendChild(taskTitleInput_element);
+
+const taskDescriptionInput_element = document.createElement("textarea");
+taskDescriptionInput_element.id = "taskDescriptionInput";
+taskDescriptionInput_element.placeholder = "Description";
+taskForm.appendChild(taskDescriptionInput_element);
+
+const addTaskButton_element = document.createElement("button");
+addTaskButton_element.id = "addTaskButton";
+addTaskButton_element.textContent = "Add";
+taskForm.appendChild(addTaskButton_element);
+
+body.append(taskForm);
