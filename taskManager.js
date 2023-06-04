@@ -61,23 +61,24 @@ const showTasks = () => {
     const taskElement = document.createElement("p");
     taskElement.textContent = `[${task.id}] ${task.title} - ${task.description}`;
 
-    const editButton = document.createElement("button");
-    editButton.textContent = "Edit";
-    editButton.addEventListener("click", () => {
-      taskElement.classList.add("edit-mode");
-      showTaskEditor(task, taskElement);
-    });
-    taskElement.appendChild(editButton);
-
     const completeButton = document.createElement("button");
     completeButton.textContent = "Complete!";
     completeButton.addEventListener("click", () => {
       task.completed = true;
       showTasks();
     });
-    taskElement.appendChild(completeButton);
+    taskElement.prepend(completeButton);
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.addEventListener("click", () => {
+      taskElement.classList.add("edit-mode");
+      showTaskEditor(task, taskElement);
+    });
+    taskElement.prepend(editButton);
 
     if (task.completed) {
+      taskElement.removeChild(completeButton);
       completedTasksDiv.appendChild(taskElement);
     } else {
       incompleteTaskListDiv.appendChild(taskElement);
