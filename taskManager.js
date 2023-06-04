@@ -41,6 +41,14 @@ const showTasks = () => {
     const taskElement = document.createElement("p");
     taskElement.textContent = `[${task.id}] ${task.title} - ${task.description}`;
 
+    const completeButton = document.createElement("button");
+    completeButton.textContent = "complete!";
+    completeButton.addEventListener("click", () => {
+      task.completed = true;
+      showTasks();
+    });
+    taskElement.appendChild(completeButton);
+
     if (task.completed) {
       completedTasksDiv.appendChild(taskElement);
     } else {
