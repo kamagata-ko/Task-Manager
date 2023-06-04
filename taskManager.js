@@ -20,6 +20,7 @@ class Task {
     this.id = id;
     this.title = title;
     this.description = description;
+    this.completed = false;
   }
 }
 
@@ -31,13 +32,20 @@ taskManager.addTask(task1);
 taskManager.addTask(task2);
 
 const showTasks = () => {
-  const taskListDiv = document.getElementById("taskList");
-  taskListDiv.innerHTML = "";
+  const incompleteTaskListDiv = document.getElementById("incompleteTasks");
+  const completedTasksDiv = document.getElementById("completedTasks");
+  incompleteTaskListDiv.innerHTML = "";
+  completedTasksDiv.innerHTML = "";
 
   taskManager.tasks.forEach((task) => {
     const taskElement = document.createElement("p");
     taskElement.textContent = `[${task.id}] ${task.title} - ${task.description}`;
-    taskListDiv.appendChild(taskElement);
+
+    if (task.completed) {
+      completedTasksDiv.appendChild(taskElement);
+    } else {
+      incompleteTaskListDiv.appendChild(taskElement);
+    }
   });
 };
 
