@@ -4,7 +4,7 @@ const headline = document.createElement("h1");
 headline.innerHTML = "Task Manager App";
 
 const div_element = document.createElement("div");
-div_element.id = "app";
+div_element.id = "taskList";
 
 body.append(headline);
 body.append(div_element);
