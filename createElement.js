@@ -24,3 +24,35 @@ body.append(incompleteTasks);
 body.append(completedTasksHeadline);
 body.append(completedTasks);
 body.append(div_element);
+
+/**-------------------------------------------- */
+
+const taskEditor = document.createElement("div");
+taskEditor.id = "taskEditor";
+
+const taskEditorHeadline = document.createElement("h2");
+taskEditorHeadline.innerHTML = "Task editor";
+taskEditor.appendChild(taskEditorHeadline);
+
+const editTitle = document.createElement("input");
+editTitle.type = "text";
+editTitle.id = "editTitle";
+editTitle.placeholder = "Title";
+taskEditor.appendChild(editTitle);
+
+const editDescription = document.createElement("textarea");
+editDescription.id = "editDescription";
+editDescription.placeholder = "Description";
+taskEditor.appendChild(editDescription);
+
+const saveButton = document.createElement("button");
+saveButton.id = "saveButton";
+saveButton.textContent = "Save";
+taskEditor.appendChild(saveButton);
+
+const cancelButton = document.createElement("button");
+cancelButton.id = "cancelButton";
+cancelButton.textContent = "Cancel";
+taskEditor.appendChild(cancelButton);
+
+body.append(taskEditor);

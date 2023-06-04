@@ -1,0 +1,19 @@
+.edit-mode {
+  background-color: lightgray;
+}
+
+#taskEditor {
+  display: none;
+  margin-top: 10px;
+}
+
+#taskEditor input,
+#taskEditor textarea {
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+#taskEditor button {
+  margin-top: 5px;
+}

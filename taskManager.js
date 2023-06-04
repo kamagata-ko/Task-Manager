@@ -41,6 +41,14 @@ const showTasks = () => {
     const taskElement = document.createElement("p");
     taskElement.textContent = `[${task.id}] ${task.title} - ${task.description}`;
 
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.addEventListener("click", () => {
+      taskElement.classList.add("edit-mode");
+      showTaskEditor(task, taskElement);
+    });
+    taskElement.appendChild(editButton);
+
     const completeButton = document.createElement("button");
     completeButton.textContent = "Complete!";
     completeButton.addEventListener("click", () => {
@@ -54,6 +62,34 @@ const showTasks = () => {
     } else {
       incompleteTaskListDiv.appendChild(taskElement);
     }
+  });
+};
+
+const showTaskEditor = (task, taskElement) => {
+  const taskEditor = document.getElementById("taskEditor");
+  const editTitle = document.getElementById("editTitle");
+  const editDescription = document.getElementById("editDescription");
+  const saveButton = document.getElementById("saveButton");
+  const cancelButton = document.getElementById("cancelButton");
+
+  editTitle.value = task.title;
+  editDescription.value = task.description;
+
+  taskEditor.style.display = "block";
+
+  saveButton.addEventListener("click", () => {
+    task.title = editTitle.value;
+    task.description = editDescription.value;
+
+    taskElement.classList.remove("edit-mode");
+    taskEditor.style.display = "none";
+
+    showTasks();
+  });
+
+  cancelButton.addEventListener("click", () => {
+    taskElement.classList.remove("edit-mode");
+    taskEditor.style.display = "none";
   });
 };
 
