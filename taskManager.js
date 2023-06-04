@@ -111,11 +111,15 @@ const showTaskEditor = (task, taskElement) => {
     showTasks();
 
     saveButton.removeEventListener("click", saveButtonClickHandler);
+    revertButton.removeEventListener("click", revertButtonHandler);
   }
 
   cancelButton.addEventListener("click", () => {
     taskElement.classList.remove("edit-mode");
     taskEditor.style.display = "none";
+
+    saveButton.removeEventListener("click", saveButtonClickHandler);
+    revertButton.removeEventListener("click", revertButtonHandler);
   });
 
   if (task.completed) {
@@ -129,6 +133,7 @@ const showTaskEditor = (task, taskElement) => {
       taskEditor.style.display = "none";
       showTasks();
 
+      saveButton.removeEventListener("click", saveButtonClickHandler);
       revertButton.removeEventListener("click", revertButtonHandler);
     }
   }
