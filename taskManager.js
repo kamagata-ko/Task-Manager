@@ -62,6 +62,7 @@ const showTasks = () => {
     taskElement.textContent = `[${task.id}] ${task.title} - ${task.description}`;
 
     const completeButton = document.createElement("button");
+    completeButton.className = "btn btn-info mr-2";
     completeButton.textContent = "Complete!";
     completeButton.addEventListener("click", () => {
       task.completed = true;
@@ -70,6 +71,7 @@ const showTasks = () => {
     taskElement.prepend(completeButton);
 
     const editButton = document.createElement("button");
+    editButton.className = "btn btn-secondary mr-2";
     editButton.textContent = "Edit";
     editButton.addEventListener("click", () => {
       taskElement.classList.add("edit-mode");

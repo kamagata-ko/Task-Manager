@@ -1,5 +1,11 @@
 const body = document.querySelector("body");
 
+const container = document.createElement("div");
+container.className = "container";
+body.append(container);
+
+/**-------------------------------------------- */
+
 const headline = document.createElement("h1");
 headline.innerHTML = "Task Manager App";
 
@@ -18,12 +24,12 @@ completedTasks.id = "completedTasks";
 const div_element = document.createElement("div");
 div_element.id = "taskList";
 
-body.append(headline);
-body.append(incompleteTasksHeadline);
-body.append(incompleteTasks);
-body.append(completedTasksHeadline);
-body.append(completedTasks);
-body.append(div_element);
+container.append(headline);
+container.append(incompleteTasksHeadline);
+container.append(incompleteTasks);
+container.append(completedTasksHeadline);
+container.append(completedTasks);
+container.append(div_element);
 
 /**-------------------------------------------- */
 
@@ -47,21 +53,24 @@ taskEditor.appendChild(editDescription);
 
 const saveButton = document.createElement("button");
 saveButton.id = "saveButton";
+saveButton.className = "btn btn-success mr-2";
 saveButton.textContent = "Save";
 taskEditor.appendChild(saveButton);
 
 const cancelButton = document.createElement("button");
 cancelButton.id = "cancelButton";
+cancelButton.className = "btn btn-secondary mr-2";
 cancelButton.textContent = "Cancel";
 taskEditor.appendChild(cancelButton);
 
 const revertButton_element = document.createElement("button");
 revertButton_element.id = "revertIncompleteButton";
+revertButton_element.className = "btn btn-info mr-2";
 revertButton_element.textContent = "revert to incomplete";
 revertButton_element.style.display = "none";
 taskEditor.appendChild(revertButton_element);
 
-body.append(taskEditor);
+container.append(taskEditor);
 
 /**-------------------------------------------- */
 
@@ -84,7 +93,8 @@ taskForm.appendChild(taskDescriptionInput_element);
 
 const addTaskButton_element = document.createElement("button");
 addTaskButton_element.id = "addTaskButton";
+addTaskButton_element.className = "btn btn-primary mr-2";
 addTaskButton_element.textContent = "Add";
 taskForm.appendChild(addTaskButton_element);
 
-body.append(taskForm);
+container.append(taskForm);
